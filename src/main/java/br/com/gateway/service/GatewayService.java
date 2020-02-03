@@ -14,6 +14,7 @@ import java.util.List;
  * Consultar
  * https://www.baeldung.com/rest-template
  * https://www.baeldung.com/spring-rest-template-list
+ * https://www.baeldung.com/spring-webclient-resttemplate
  * https://github.com/eugenp/tutorials/blob/a3881e1eafbc2bb4b31bee01b6431bcd17f018dc/spring-rest-simple/src/test/java/com/baeldung/web/test/RestTemplateBasicLiveTest.java
  */
 @Service
