@@ -9,6 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Classe controller
  *
@@ -41,5 +43,12 @@ public class GatewayController {
     public @ResponseBody PessoaJuridicaResponse consultarPessoaJuridica(@PathVariable final long id) {
         PessoaJuridicaResponse response = gatewayService.consultarServicoPessoaJuridica(id);
         return response;
+    }
+
+    @GetMapping(value = "/pj", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody List<PessoaJuridicaResponse> consultarPessoaJuridicaEmLote() {
+        List<PessoaJuridicaResponse> pessoaJuridicaResponses = gatewayService.consultarServicoPessoaJuridicaEmLote();
+        return pessoaJuridicaResponses;
     }
 }
