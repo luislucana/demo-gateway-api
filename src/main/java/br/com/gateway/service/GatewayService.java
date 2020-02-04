@@ -2,6 +2,8 @@ package br.com.gateway.service;
 
 import br.com.gateway.web.dto.PessoaFisicaResponse;
 import br.com.gateway.web.dto.PessoaJuridicaResponse;
+import br.com.teste.User;
+import br.com.teste.UserDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -60,5 +62,25 @@ public class GatewayService {
         }
 
         return Arrays.asList(response.getBody());
+    }
+
+    public UserDTO salvarUser(final UserDTO userDTO) {
+        User user = new User(userDTO);
+
+        // salvar user
+        //savedUser = repository.save(user);
+        User savedUser = new User(userDTO);
+
+        return new UserDTO(savedUser);
+    }
+
+    public User salvarUser2(final UserDTO userDTO) {
+        User user = new User(userDTO);
+
+        // salvar user
+        //savedUser = repository.save(user);
+        User savedUser = new User(userDTO);
+
+        return savedUser;
     }
 }

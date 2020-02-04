@@ -3,6 +3,8 @@ package br.com.gateway.web.controller;
 import br.com.gateway.service.GatewayService;
 import br.com.gateway.web.dto.PessoaJuridicaResponse;
 import br.com.gateway.web.dto.PessoaFisicaResponse;
+import br.com.teste.User;
+import br.com.teste.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -50,5 +52,21 @@ public class GatewayController {
     public @ResponseBody List<PessoaJuridicaResponse> consultarPessoaJuridicaEmLote() {
         List<PessoaJuridicaResponse> pessoaJuridicaResponses = gatewayService.consultarServicoPessoaJuridicaEmLote();
         return pessoaJuridicaResponses;
+    }
+
+    @PostMapping(value = "/user", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody UserDTO salvarUser(@RequestBody UserDTO requestBody) {
+        UserDTO userDTO = gatewayService.salvarUser(requestBody);
+        return userDTO;
+    }
+
+    @PostMapping(value = "/user2", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public @ResponseBody User salvarUser2(@RequestBody UserDTO requestBody) {
+        User user = gatewayService.salvarUser2(requestBody);
+        return user;
     }
 }
